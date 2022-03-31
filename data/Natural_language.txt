@@ -1,0 +1,35 @@
+in neuropsychology, linguistics, and the philosophy of language, a natural language or ordinary language is any language that has evolved naturally in humans through use and repetition without conscious planning or premeditation. natural languages can take different forms, such as speech or signing. they are distinguished from constructed and formal languages such as those used to program computers or to study logic.
+
+
+== defining natural language ==
+natural language can be broadly defined as different from 
+
+artificial and constructed languages, e.g. computer programming languages
+constructed international auxiliary languages
+non-human communication systems in nature such as whale and other marine mammal vocalizations or honey bees' waggle dance.all varieties of world languages are natural languages, including those that are associated with linguistic prescriptivism or language regulation. (nonstandard dialects can be viewed as a wild type in comparison with standard languages.) an official language with a regulating academy such as standard french, overseen by the académie française, is classified as a natural language (e.g. in the field of natural language processing), as its prescriptive aspects do not make it constructed enough to be a constructed language or controlled enough to be a controlled natural language.
+
+
+== controlled languages ==
+
+controlled natural languages are subsets of natural languages whose grammars and dictionaries have been restricted in order to reduce ambiguity and complexity. this may be accomplished by decreasing usage of superlative or adverbial forms, or irregular verbs. typical purposes for developing and implementing a controlled natural language are to aid understanding by non-native speakers or to ease computer processing. an example of a widely-used controlled natural language is simplified technical english, which was originally developed for aerospace and avionics industry manuals.
+
+
+== international constructed languages ==
+
+although constructed, international auxiliary languages such as esperanto and interlingua are not considered natural languages, with the possible exception of true native speakers of such languages such as george soros. natural languages evolve, through fluctuations in vocabulary and syntax, to incrementally improve human communication. in contrast, esperanto was created by polish ophthalmologist l. l. zamenhof in the late 19th century.
+some natural languages have become organically "standardized" through the synthesis of two or more pre-existing natural languages over a relatively short period of time through the development of a pidgin, which is not considered a language, into a stable creole language. a creole such as haitian creole has its own grammar, vocabulary and literature. it is spoken by over 10 million people around the world and is one of the two official languages of the republic of haiti. 
+as of 1996, there were 350 attested families with one or more native speakers of esperanto. latino sine flexione, another international auxiliary language, is no longer widely spoken.
+
+
+== see also ==
+language acquisition
+origin of language
+formal semantics of natural languages
+jargon
+zipf's law
+
+
+== notes ==
+
+
+== references ==

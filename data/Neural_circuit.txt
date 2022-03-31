@@ -1,0 +1,64 @@
+a neural circuit is a population of neurons interconnected by synapses to carry out a specific function when activated. neural circuits interconnect to one another to form large scale brain networks. biological neural networks have inspired the design of artificial neural networks, but artificial neural networks are usually not strict copies of their biological counterparts.
+
+
+== early study ==
+
+early treatments of neural networks can be found in herbert spencer's principles of psychology, 3rd edition (1872), theodor meynert's psychiatry (1884), william james' principles of psychology (1890), and sigmund freud's project for a scientific psychology (composed 1895). the first rule of neuronal learning was described by hebb in 1949, in the hebbian theory. thus, hebbian pairing of pre-synaptic and post-synaptic activity can substantially alter the dynamic characteristics of the synaptic connection and therefore either facilitate or inhibit signal transmission. in 1959, the neuroscientists, warren sturgis mcculloch and walter pitts published the first works on the processing of neural networks. they showed theoretically that networks of artificial neurons could implement logical, arithmetic, and symbolic functions. simplified models of biological neurons were set up, now usually called perceptrons or artificial neurons. these simple models accounted for neural summation (i.e., potentials at the post-synaptic membrane will summate in the cell body). later models also provided for excitatory and inhibitory synaptic transmission.
+
+
+== connections between neurons ==
+
+the connections between neurons in the brain are much more complex than those of the artificial neurons used in the connectionist neural computing models of artificial neural networks. the basic kinds of connections between neurons are synapses: both chemical and electrical synapses.
+the establishment of synapses enables the connection of neurons into millions of overlapping, and interlinking neural circuits. presynaptic proteins called neurexins are central to this process.one principle by which neurons work is neural summation – potentials at the postsynaptic membrane will sum up in the cell body. if the depolarization of the neuron at the axon hillock goes above threshold an action potential will occur that travels down the axon to the terminal endings to transmit a signal to other neurons. excitatory and inhibitory synaptic transmission is realized mostly by excitatory postsynaptic potentials (epsps), and inhibitory postsynaptic potentials (ipsps).
+on the electrophysiological level, there are various phenomena which alter the response characteristics of individual synapses (called synaptic plasticity) and individual neurons (intrinsic plasticity). these are often divided into short-term plasticity and long-term plasticity. long-term synaptic plasticity is often contended to be the most likely memory substrate. usually, the term "neuroplasticity" refers to changes in the brain that are caused by activity or experience.
+connections display temporal and spatial characteristics. temporal characteristics refers to the continuously modified activity-dependent efficacy of synaptic transmission, called spike-timing-dependent plasticity. it has been observed in several studies that the synaptic efficacy of this transmission can undergo short-term increase (called facilitation) or decrease (depression) according to the activity of the presynaptic neuron. the induction of long-term changes in synaptic efficacy, by long-term potentiation (ltp) or depression (ltd), depends strongly on the relative timing of the onset of the excitatory postsynaptic potential and the postsynaptic action potential. ltp is induced by a series of action potentials which cause a variety of biochemical responses. eventually, the reactions cause the expression of new receptors on the cellular membranes of the postsynaptic neurons or increase the efficacy of the existing receptors through phosphorylation.
+backpropagating action potentials cannot occur because after an action potential travels down a given segment of the axon, the m gates on voltage-gated sodium channels close, thus blocking any transient opening of the h gate from causing a change in the intracellular sodium ion (na+) concentration, and preventing the generation of an action potential back towards the cell body. in some cells, however, neural backpropagation does occur through the dendritic branching and may have important effects on synaptic plasticity and computation.
+a neuron in the brain requires a single signal to a neuromuscular junction to stimulate contraction of the postsynaptic muscle cell. in the spinal cord, however, at least 75 afferent neurons are required to produce firing. this picture is further complicated by variation in time constant between neurons, as some cells can experience their epsps over a wider period of time than others.
+while in synapses in the developing brain synaptic depression has been particularly widely observed it has been speculated that it changes to facilitation in adult brains.
+
+
+== circuitry ==
+
+an example of a neural circuit is the trisynaptic circuit in the hippocampus. another is the papez circuit linking the hypothalamus to the limbic lobe. there are several neural circuits in the cortico-basal ganglia-thalamo-cortical loop. these circuits carry information between the cortex, basal ganglia, thalamus, and back to the cortex. the largest structure within the basal ganglia, the striatum, is seen as having its own internal microcircuitry.neural circuits in the spinal cord called central pattern generators are responsible for controlling motor instructions involved in rhythmic behaviours. rhythmic behaviours include walking, urination, and ejaculation. the central pattern generators are made up of different groups of spinal interneurons.there are four principal types of neural circuits that are responsible for a broad scope of neural functions. these circuits are a diverging circuit, a converging circuit, a reverberating circuit, and a parallel after-discharge circuit.in a diverging circuit, one neuron synapses with a number of postsynaptic cells. each of these
+may synapse with many more making it possible for one neuron to stimulate up to thousands of cells. this is exemplified in the way that thousands of muscle fibers can be stimulated from the initial input from a single motor neuron.in a converging circuit, inputs from many sources are converged into one output, affecting just one neuron or a neuron pool. this type of circuit is exemplified in the respiratory center of the brainstem, which responds to a number of inputs from different sources by giving out an appropriate breathing pattern.a reverberating circuit produces a repetitive output. in a signalling procedure from one neuron to another in a linear sequence, one of the neurons may send a signal back to initiating neuron.
+each time that the first neuron fires, the other neuron further down the sequence fire again sending it back to the source. this restimulates the first neuron and also allows the path of transmission to continue to its output. a resulting repetitive pattern is the outcome that only stops if one or more of the synapses fail, or if an inhibitory feed from another source causes it to stop. this type of reverberating circuit is found in the respiratory center that sends signals to the respiratory muscles, causing inhalation. when the circuit is interrupted by an inhibitory signal the muscles relax causing exhalation. this type of circuit may play a part in epileptic seizures.in a parallel after-discharge circuit, a neuron inputs to several chains of neurons. each chain is made up of a different number of neurons but their signals converge onto one output neuron. each synapse in the circuit acts to delay the signal by about 0.5 msec so that the more synapses there are will produce a longer delay to the output neuron. after the input has stopped, the output will go on firing for some time. this type of circuit does not have a feedback loop as does the reverberating circuit. continued firing after the stimulus has stopped is called after-discharge. this circuit type is found in the reflex arcs of certain reflexes.
+
+
+== study methods ==
+
+different neuroimaging techniques have been developed to investigate the activity of neural circuits and networks. the use of "brain scanners" or functional neuroimaging to investigate the structure or function of the brain is common, either as simply a way of better assessing brain injury with high-resolution pictures, or by examining the relative activations of different brain areas. such technologies may include functional magnetic resonance imaging (fmri), brain positron emission tomography (brain pet), and computed axial tomography (cat) scans. functional neuroimaging uses specific brain imaging technologies to take scans from the brain, usually when a person is doing a particular task, in an attempt to understand how the activation of particular brain areas is related to the task. in functional neuroimaging, especially fmri, which measures hemodynamic activity (using bold-contrast imaging) which is closely linked to neural activity, pet, and electroencephalography (eeg) is used.
+connectionist models serve as a test platform for different hypotheses of representation, information processing, and signal transmission. lesioning studies in such models, e.g. artificial neural networks, where parts of the nodes are deliberately destroyed to see how the network performs, can also yield important insights in the working of several cell assemblies. similarly, simulations of dysfunctional neurotransmitters in neurological conditions (e.g., dopamine in the basal ganglia of parkinson's patients) can yield insights into the underlying mechanisms for patterns of cognitive deficits observed in the particular patient group. predictions from these models can be tested in patients or via pharmacological manipulations, and these studies can in turn be used to inform the models, making the process iterative.
+the modern balance between the connectionist approach and the single-cell approach in neurobiology has been achieved through a lengthy discussion.	
+in 1972, barlow announced the single neuron revolution: "our perceptions are caused by the activity of a rather small number of neurons selected from a very large population of predominantly silent cells." this approach was stimulated by the idea of grandmother cell put forward two years earlier. barlow formulated "five dogmas" of neuron doctrine.  recent studies of 'grandmother cell' and sparse coding phenomena develop and modify these ideas. the single cell experiments  used intracranial electrodes in the medial temporal lobe (the hippocampus and surrounding cortex). modern development of concentration of measure theory (stochastic separation theorems) with applications to artificial neural networks give mathematical background to unexpected effectiveness of small neural ensembles in high-dimensional brain.
+
+
+== clinical significance ==
+sometimes neural circuitries can become pathological and cause problems such as in parkinson's disease when the basal ganglia are involved. problems in the papez circuit can also give rise to a number of neurodegenerative disorders including parkinson's.
+
+
+== see also ==
+feedback
+list of regions in the human brain
+network science
+neural coding
+neural engineering
+neural oscillation
+pulse-coupled networks
+systems neuroscience
+
+
+== references ==
+
+
+== further reading ==
+intrinsic plasticity robert h. cudmore, niraj s. desai scholarpedia 3(2):1363. doi:10.4249/scholarpedia.1363
+
+
+== external links ==
+comparison of neural networks in the brain and artificial neural networks
+lecture notes at mit opencourseware
+computation in the brain
+biological neural network toolbox - a free matlab toolbox for simulating networks of several different types of neurons
+wormweb.org: interactive visualization of the c. elegans neural network - c. elegans, a nematode with 302 neurons, is the only organism for whom the entire neural network has been uncovered.  use this site to browse through the network and to search for paths between any 2 neurons.
+introduction to neurons and neuronal networks, neuroscience online (electronic neuroscience textbook)
+delaying pulse networks (wave interference networks)
