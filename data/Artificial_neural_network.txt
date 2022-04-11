@@ -52,6 +52,7 @@ backpropagation is a method used to adjust the connection weights to compensate 
 
 
 === learning paradigms ===
+
 the three major learning paradigms are supervised learning, unsupervised learning and reinforcement learning. they each correspond to a particular learning task
 
 
@@ -340,6 +341,7 @@ in a bayesian framework, a distribution over the set of allowed models is chosen
 
 
 ==== modes ====
+
 two modes of learning are available: stochastic and batch. in stochastic learning, each input creates a weight adjustment. in batch learning weights are adjusted based on a batch of inputs, accumulating errors over the batch. stochastic learning introduces "noise" into the process, using the local gradient calculated from one data point; this reduces the chance of the network getting stuck in local minima. however, batch learning typically yields a faster, more stable descent to a local minimum, since each update is performed in the direction of the batch's average error. a common compromise is to use "mini-batches", small batches with samples in each batch selected stochastically from the entire data set.
 
 
@@ -392,6 +394,7 @@ the convergence behavior of certain types of ann architectures are more understo
 
 
 === generalization and statistics ===
+
 applications whose goal is to create a system that generalizes well to unseen examples, face the possibility of over-training. this arises in convoluted or over-specified systems when the network capacity significantly exceeds the needed free parameters. two approaches address over-training. the first is to use cross-validation and similar techniques to check for the presence of over-training and to select hyperparameters to minimize the generalization error.
 the second is to use some form of regularization. this concept emerges in a probabilistic (bayesian) framework, where regularization can be performed by selecting a larger prior probability over simpler models; but also in statistical learning theory, where the goal is to minimize over two quantities: the 'empirical risk' and the 'structural risk', which roughly corresponds to the error over the training set and the predicted error in unseen data due to overfitting.
 
