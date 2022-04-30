@@ -27,5 +27,5 @@ for query in queries:
         except wikipedia.exceptions.DisambiguationError as e:
             pass
         
-        
+
         

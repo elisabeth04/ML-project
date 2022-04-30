@@ -1,3 +1,4 @@
 wikipedia
 tensorflow
 nltk
+tensorflow-addons
