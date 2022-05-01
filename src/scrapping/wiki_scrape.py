@@ -7,9 +7,11 @@ import os
 import warnings
 #nltk.download('punkt')
 DATA_PATH = "../../data/"
-queries = ["france"]
+# queries = ["machine learning", "networks", "artificial intelligence", "computer science", "neural networks", "natural language processing"]
+queries = ["Wireless network"]
 #download punkt
 def wiki_scrape(queries):
+    """Downloads and scrapes queries from wikipedia to data folder"""
     warnings.catch_warnings()
     warnings.simplefilter("ignore")
     wikipedia.set_rate_limiting(0.01) #set limit so the all powerful webmaster doesn't block us
@@ -33,5 +35,5 @@ def wiki_scrape(queries):
                 print(f"error: {e}")
                 pass
             
-# wiki_scrape(queries)
+wiki_scrape(queries)
         

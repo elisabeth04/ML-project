@@ -1,0 +1,45 @@
+in machine learning, a hyperparameter is a parameter whose value is used to control the learning process. by contrast, the values of other parameters (typically node weights) are derived via training.
+hyperparameters can be classified as model hyperparameters, that cannot be inferred while fitting the machine to the training set because they refer to the model selection task, or algorithm hyperparameters, that in principle have no influence on the performance of the model but affect the speed and quality of the learning process. an example of a model hyperparameter is the topology and size of a neural network. examples of algorithm hyperparameters are learning rate and mini-batch size.different model training algorithms require different hyperparameters, some simple algorithms (such as ordinary least squares regression) require none. given these hyperparameters, the training algorithm learns the parameters from the data. for instance, lasso is an algorithm that adds a regularization hyperparameter to ordinary least squares regression, which has to be set before estimating the parameters through the training algorithm.
+
+
+== considerations ==
+the time required to train and test a model can depend upon the choice of its hyperparameters. a hyperparameter is usually of continuous or integer type, leading to mixed-type optimization problems. the existence of some hyperparameters is conditional upon the value of others, e.g. the size of each hidden layer in a neural network can be conditional upon the number of layers.
+
+
+=== difficulty learnable parameters ===
+usually, but not always, hyperparameters cannot be learned using well known gradient based methods (such as gradient descent, lbfgs) - which are commonly employed to learn parameters. these hyperparameters are those parameters describing a model representation that cannot be learned by common optimization methods but nonetheless affect the loss function. an example would be the tolerance hyperparameter for errors in support vector machines.
+
+
+=== untrainable parameters ===
+sometimes, hyperparameters cannot be learned from the training data because they aggressively increase the capacity of a model, and can push the loss function to an undesired minimum (overfitting to, and picking up noise in the data), as opposed to correctly mapping the richness of the structure in the data. for example, if we treat the degree of a polynomial equation fitting a regression model as a trainable parameter, the degree would increase until the model perfectly fit the data, yielding low training error, but poor generalization performance.
+
+
+=== tunability ===
+most performance variation can be attributed to just a few hyperparameters. the tunability of an algorithm, hyperparameter, or interacting hyperparameters is a measure of how much performance can be gained by tuning it. for an lstm, while the learning rate followed by the network size are its most crucial hyperparameters, batching and momentum have no significant effect on its performance.although some research has advocated the use of mini-batch sizes in the thousands, other work has found the best performance with mini-batch sizes between 2 and 32.
+
+
+=== robustness ===
+an inherent stochasticity in learning directly implies that the empirical hyperparameter performance is not necessarily its true performance. methods that are not robust to simple changes in hyperparameters, random seeds, or even different implementations of the same algorithm cannot be integrated into mission critical control systems without significant simplification and robustification.reinforcement learning algorithms, in particular, require measuring their performance over a large number of random seeds, and also measuring their sensitivity to choices of hyperparameters. their evaluation with a small number of random seeds does not capture performance adequately due to high variance. some reinforcement learning methods, e.g. ddpg (deep deterministic policy gradient), are more sensitive to hyperparameter choices than others.
+
+
+== optimization ==
+
+hyperparameter optimization finds a tuple of hyperparameters that yields an optimal model which minimizes a predefined loss function on given test data.  the objective function takes a tuple of hyperparameters and returns the associated loss.
+
+
+== reproducibility ==
+apart from tuning hyperparameters, machine learning involves storing and organizing the parameters and results, and making sure they are reproducible. in the absence of a robust infrastructure for this purpose, research code often evolves quickly and compromises essential aspects like bookkeeping and reproducibility. online collaboration platforms for machine learning go further by allowing scientists to automatically share, organize and discuss experiments, data, and algorithms. reproducibility can be particularly difficult for deep learning models.a number of relevant services and open source software exist:
+
+
+=== services ===
+
+
+=== software ===
+
+
+== see also ==
+hyper-heuristic
+replication crisis
+
+
+== references ==

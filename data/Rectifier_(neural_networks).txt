@@ -1,0 +1,789 @@
+in the context of artificial neural networks, the rectifier or relu (rectified linear unit) activation function is an activation function defined as the positive part of its argument:
+
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        
+          x
+          
+            +
+          
+        
+        =
+        max
+        (
+        0
+        ,
+        x
+        )
+      
+    
+    {\displaystyle f(x)=x^{+}=\max(0,x)}
+  where x is the input to a neuron. this is also known as a ramp function and is analogous to half-wave rectification in electrical engineering.
+this activation function started showing up in the context of visual feature extraction in hierarchical neural networks starting in the late 1960s. it was later argued that it  has  strong biological motivations and mathematical justifications. in 2011 it was found to enable better training of deeper networks, compared to the widely used activation functions prior to 2011, e.g., the logistic sigmoid (which is inspired by probability theory; see logistic regression) and its more practical counterpart, the hyperbolic tangent. the rectifier is, as of 2017, the most popular activation function for deep neural networks.rectified linear units find applications in computer vision and speech recognition using deep neural nets and computational neuroscience.
+
+
+== advantages ==
+sparse activation: for example, in a randomly initialized network, only about 50% of hidden units are activated (have a non-zero output).
+better gradient propagation: fewer vanishing gradient problems compared to sigmoidal activation functions that saturate in both directions.
+efficient computation: only comparison, addition and multiplication.
+scale-invariant: 
+  
+    
+      
+        max
+        (
+        0
+        ,
+        a
+        x
+        )
+        =
+        a
+        max
+        (
+        0
+        ,
+        x
+        )
+        
+           for 
+        
+        a
+        ≥
+        0
+      
+    
+    {\displaystyle \max(0,ax)=a\max(0,x){\text{ for }}a\geq 0}
+  .rectifying activation functions were used to separate specific excitation and unspecific inhibition in the neural abstraction pyramid, which was trained in a supervised way to learn several computer vision tasks. in 2011, the use of the rectifier as a non-linearity has been shown to enable training deep supervised neural networks without requiring unsupervised pre-training. rectified linear units, compared to sigmoid function or similar activation functions, allow faster and effective training of deep neural architectures on large and complex datasets.
+
+
+== potential problems ==
+non-differentiable at zero; however, it is differentiable anywhere else, and the value of the derivative at zero can be arbitrarily chosen to be 0 or 1.
+not zero-centered.
+unbounded.
+dying relu problem: relu (rectified linear unit) neurons can sometimes be pushed into states in which they become inactive for essentially all inputs. in this state, no gradients flow backward through the neuron, and so the neuron becomes stuck in a perpetually inactive state and "dies". this is a form of the vanishing gradient problem. in some cases, large numbers of neurons in a network can become stuck in dead states, effectively decreasing the model capacity. this problem typically arises when the learning rate is set too high. it may be mitigated by using leaky relus instead, which assign a small positive slope for x < 0; however, the performance is reduced.
+
+
+== variants ==
+
+
+=== linear variants ===
+
+
+==== leaky relu ====
+leaky relus allow a small, positive gradient when the unit is not active.
+
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        
+          
+            {
+            
+              
+                
+                  x
+                
+                
+                  
+                    if 
+                  
+                  x
+                  >
+                  0
+                  ,
+                
+              
+              
+                
+                  0.01
+                  x
+                
+                
+                  
+                    otherwise
+                  
+                  .
+                
+              
+            
+            
+          
+        
+      
+    
+    {\displaystyle f(x)={\begin{cases}x&{\text{if }}x>0,\\0.01x&{\text{otherwise}}.\end{cases}}}
+  
+
+
+==== parametric relu ====
+parametric relus (prelus) take this idea further by making the coefficient of leakage into a parameter that is learned along with the other neural-network parameters.
+
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        
+          
+            {
+            
+              
+                
+                  x
+                
+                
+                  
+                    if 
+                  
+                  x
+                  >
+                  0
+                  ,
+                
+              
+              
+                
+                  a
+                  x
+                
+                
+                  
+                    otherwise
+                  
+                  .
+                
+              
+            
+            
+          
+        
+      
+    
+    {\displaystyle f(x)={\begin{cases}x&{\text{if }}x>0,\\ax&{\text{otherwise}}.\end{cases}}}
+  note that for a ≤ 1, this is equivalent to
+
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        max
+        (
+        x
+        ,
+        a
+        x
+        )
+      
+    
+    {\displaystyle f(x)=\max(x,ax)}
+  and thus has a relation to "maxout" networks.
+
+
+=== non-linear variants ===
+
+
+==== gaussian error linear unit (gelu) ====
+gelu is a smooth approximation to the rectifier. it has a non-monotonic “bump” when x < 0, and it serves as the default activation for models such as bert.
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        x
+        ⋅
+        φ
+        (
+        x
+        )
+      
+    
+    {\displaystyle f(x)=x\cdot \phi (x)}
+  ,
+where φ(x) is the cumulative distribution function of the standard normal distribution.
+this activation function is illustrated in the figure at the start of this article.
+
+
+==== silu ====
+
+the silu (sigmoid linear unit) or swish function is another smooth approximation first coined in the gelu paper. 
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        x
+        ⋅
+        sigmoid
+        ⁡
+        (
+        x
+        )
+      
+    
+    {\displaystyle f(x)=x\cdot \operatorname {sigmoid} (x)}
+  
+where 
+  
+    
+      
+        sigmoid
+        ⁡
+        (
+        x
+        )
+      
+    
+    {\displaystyle \operatorname {sigmoid} (x)}
+   is the sigmoid function.
+
+
+==== softplus ====
+a smooth approximation to the rectifier is the analytic function
+
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        ln
+        ⁡
+        (
+        1
+        +
+        
+          e
+          
+            x
+          
+        
+        )
+        ,
+      
+    
+    {\displaystyle f(x)=\ln(1+e^{x}),}
+  which is called the softplus or smoothrelu function.  for large negative 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+   it is about 
+  
+    
+      
+        
+          e
+          
+            x
+          
+        
+      
+    
+    {\displaystyle e^{x}}
+   so just above 0, while for large positive 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+   about 
+  
+    
+      
+        x
+        +
+        
+          e
+          
+            −
+            x
+          
+        
+      
+    
+    {\displaystyle x+e^{-x}}
+   so just above 
+  
+    
+      
+        x
+      
+    
+    {\displaystyle x}
+  . 
+a sharpness parameter 
+  
+    
+      
+        k
+      
+    
+    {\displaystyle k}
+   may be included:
+
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        
+          
+            
+              ln
+              ⁡
+              
+                (
+                
+                  1
+                  +
+                  
+                    e
+                    
+                      k
+                      x
+                    
+                  
+                
+                )
+              
+            
+            k
+          
+        
+      
+    
+    {\displaystyle f(x)={\frac {\ln \left(1+e^{kx}\right)}{k}}}
+  the derivative of softplus is the logistic function. starting from the parametric version,
+
+  
+    
+      
+        
+          f
+          ′
+        
+        (
+        x
+        )
+        =
+        
+          
+            
+              e
+              
+                k
+                x
+              
+            
+            
+              1
+              +
+              
+                e
+                
+                  k
+                  x
+                
+              
+            
+          
+        
+        =
+        
+          
+            1
+            
+              1
+              +
+              
+                e
+                
+                  −
+                  k
+                  x
+                
+              
+            
+          
+        
+      
+    
+    {\displaystyle f'(x)={\frac {e^{kx}}{1+e^{kx}}}={\frac {1}{1+e^{-kx}}}}
+  the logistic sigmoid function is a smooth approximation of the derivative of the rectifier, the heaviside step function.
+the multivariable generalization of single-variable softplus is the logsumexp with the first argument set to zero:
+
+  
+    
+      
+        
+          
+            l
+            s
+            
+              e
+              
+                0
+              
+            
+          
+          
+            +
+          
+        
+        ⁡
+        (
+        
+          x
+          
+            1
+          
+        
+        ,
+        …
+        ,
+        
+          x
+          
+            n
+          
+        
+        )
+        :=
+        lse
+        ⁡
+        (
+        0
+        ,
+        
+          x
+          
+            1
+          
+        
+        ,
+        …
+        ,
+        
+          x
+          
+            n
+          
+        
+        )
+        =
+        log
+        ⁡
+        
+          (
+          
+            1
+            +
+            
+              e
+              
+                
+                  x
+                  
+                    1
+                  
+                
+              
+            
+            +
+            ⋯
+            +
+            
+              e
+              
+                
+                  x
+                  
+                    n
+                  
+                
+              
+            
+          
+          )
+        
+        .
+      
+    
+    {\displaystyle \operatorname {lse_{0}} ^{+}(x_{1},\dots ,x_{n}):=\operatorname {lse} (0,x_{1},\dots ,x_{n})=\log \left(1+e^{x_{1}}+\cdots +e^{x_{n}}\right).}
+  the logsumexp function is
+
+  
+    
+      
+        lse
+        ⁡
+        (
+        
+          x
+          
+            1
+          
+        
+        ,
+        …
+        ,
+        
+          x
+          
+            n
+          
+        
+        )
+        =
+        log
+        ⁡
+        
+          (
+          
+            
+              e
+              
+                
+                  x
+                  
+                    1
+                  
+                
+              
+            
+            +
+            ⋯
+            +
+            
+              e
+              
+                
+                  x
+                  
+                    n
+                  
+                
+              
+            
+          
+          )
+        
+        ,
+      
+    
+    {\displaystyle \operatorname {lse} (x_{1},\dots ,x_{n})=\log \left(e^{x_{1}}+\cdots +e^{x_{n}}\right),}
+  and its gradient is the softmax; the softmax with the first argument set to zero is the multivariable generalization of the logistic function. both logsumexp and softmax are used in machine learning.
+
+
+==== elu ====
+exponential linear units try to make the mean activations closer to zero, which speeds up learning. it has been shown that elus can obtain higher classification accuracy than relus.
+
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        
+          
+            {
+            
+              
+                
+                  x
+                
+                
+                  
+                    if 
+                  
+                  x
+                  >
+                  0
+                  ,
+                
+              
+              
+                
+                  a
+                  
+                    (
+                    
+                      
+                        e
+                        
+                          x
+                        
+                      
+                      −
+                      1
+                    
+                    )
+                  
+                
+                
+                  
+                    otherwise
+                  
+                  ,
+                
+              
+            
+            
+          
+        
+      
+    
+    {\displaystyle f(x)={\begin{cases}x&{\text{if }}x>0,\\a\left(e^{x}-1\right)&{\text{otherwise}},\end{cases}}}
+  where 
+  
+    
+      
+        a
+      
+    
+    {\displaystyle a}
+   is a hyper-parameter to be tuned, and 
+  
+    
+      
+        a
+        ≥
+        0
+      
+    
+    {\displaystyle a\geq 0}
+   is a constraint.
+the elu can be viewed as a smoothed version of a shifted relu (srelu), which has the form 
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        max
+        (
+        −
+        a
+        ,
+        x
+        )
+      
+    
+    {\displaystyle f(x)=\max(-a,x)}
+   given the same interpretation of 
+  
+    
+      
+        a
+      
+    
+    {\displaystyle a}
+  .
+
+
+==== mish ====
+the mish function could also be used as a smooth approximation of the rectifier. it is defined as 
+
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        x
+        tanh
+        ⁡
+        (
+        softplus
+        ⁡
+        (
+        x
+        )
+        )
+      
+    
+    {\displaystyle f(x)=x\tanh(\operatorname {softplus} (x))}
+  where 
+  
+    
+      
+        tanh
+        ⁡
+        (
+        x
+        )
+      
+    
+    {\displaystyle \tanh(x)}
+   is the hyperbolic tangent and 
+  
+    
+      
+        
+          s
+          o
+          f
+          t
+          p
+          l
+          u
+          s
+          (
+          x
+          )
+        
+      
+    
+    {\displaystyle \operatorname {softplus(x)} }
+   is the softplus function.
+
+
+== see also ==
+softmax function
+sigmoid function
+tobit model
+layer (deep learning)
+
+
+== references ==

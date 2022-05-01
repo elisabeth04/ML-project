@@ -1,0 +1,77 @@
+a wireless lan (wlan) is a wireless computer network that links two or more devices using wireless communication to form a local area network (lan) within a limited area such as a home, school, computer laboratory, campus, or office building. this gives users the ability to move around within the area and remain connected to the network. through a gateway, a wlan can also provide a connection to the wider internet.
+wireless lans based on the ieee 802.11 standards are the most widely used computer networks in the world. these are commonly called wi-fi, which is a trademark belonging to the wi-fi alliance.  they are used for home and small office networks that link together laptop computers, printers, smartphones, web tvs and gaming devices with a wireless router, which links them to the internet.  hotspots provided by routers at restaurants, coffee shops, hotels, libraries, and airports allow consumers to access the internet with portable wireless devices.
+
+
+== history ==
+norman abramson, a professor at the university of hawaii, developed the world's first wireless computer communication network, alohanet. the system became operational in 1971 and included seven computers deployed over four islands to communicate with the central computer on the oahu island without using phone lines.
+
+wireless lan hardware initially cost so much that it was only used as an alternative to cabled lan in places where cabling was difficult or impossible. early development included industry-specific solutions and proprietary protocols, but at the end of the 1990s these were replaced by technical standards, primarily the various versions of ieee 802.11 (in products using the wi-fi brand name). 
+beginning in 1991, a european alternative known as hiperlan/1 was pursued by the european telecommunications standards institute (etsi) with a first version approved in 1996.  this was followed by a hiperlan/2 functional specification with atm influences accomplished february 2000.  neither european standard achieved the commercial success of 802.11, although much of the work on hiperlan/2 has survived in the physical specification (phy) for ieee 802.11a, which is nearly identical to the phy of hiperlan/2.
+in 2009 802.11n was added to 802.11. it operates in both the 2.4 ghz and 5 ghz bands at a maximum data transfer rate of 600 mbit/s. most newer routers are dualband and able to utilize both wireless bands. this allows data communications to avoid the crowded 2.4 ghz band, which is also shared with bluetooth devices and microwave ovens. the 5 ghz band also has more channels than the 2.4 ghz band, permitting a greater number of devices to share the space. not all channels are available in all regions.
+a homerf group formed in 1997 to promote a technology aimed for residential use, but it disbanded in january 2003.
+
+
+== architecture ==
+
+
+=== stations ===
+all components that can connect into a wireless medium in a network are referred to as stations. all stations are equipped with wireless network interface controllers. wireless stations fall into two categories: wireless access points (waps), and clients. waps are base stations for the wireless network. they transmit and receive radio frequencies for wireless-enabled devices to communicate with. wireless clients can be mobile devices such as laptops, personal digital assistants, voip phones and other smartphones, or non-portable devices such as desktop computers, printers, and workstations that are equipped with a wireless network interface.
+
+
+=== service set ===
+
+the basic service set (bss) is a set of all stations that can communicate with each other at phy layer. every bss has an identification (id) called the bssid, which is the mac address of the access point servicing the bss.
+there are two types of bss: independent bss (also referred to as ibss), and infrastructure bss. an independent bss (ibss) is an ad hoc network that contains no access points, which means they cannot connect to any other basic service set. in an ibss the stas are configured in ad hoc (peer-to-peer) mode.
+an extended service set (ess) is a set of connected bsss. access points in an ess are connected by a distribution system. each ess has an id called the ssid which is a 32-byte (maximum) character string.
+a distribution system (ds) connects access points in an extended service set. the concept of a ds can be used to increase network coverage through roaming between cells. ds can be wired or wireless. current wireless distribution systems are mostly based on wds or mesh protocols, though other systems are in use.
+
+
+== types of wireless lans ==
+the ieee 802.11 has two basic modes of operation: infrastructure and ad hoc mode. in ad hoc mode, mobile units communicate directly peer-to-peer. in infrastructure mode, mobile units communicate through a wireless access point (wap) that also serves as a bridge to other networks such as a local area network or the internet.
+since wireless communication uses a more open medium for communication in comparison to wired lans, the 802.11 designers also included encryption mechanisms: wired equivalent privacy (wep), no longer considered secure, wi-fi protected access (wpa, wpa2, wpa3), to secure wireless computer networks. many access points will also offer wi-fi protected setup, a quick, but no longer considered secure, method of joining a new device to an encrypted network.
+
+
+=== infrastructure ===
+most wi-fi networks are deployed in infrastructure mode. in infrastructure mode, wireless clients, such as laptops and smartphones, connect to the wap to join the network. the wap usually has a wired network connection and may have permanent wireless connections to other waps.
+waps are usually fixed, and provide service to their client nodes within range. some networks will have multiple waps, using the same ssid and security arrangement. in that case, connecting to any wap on that network joins the client to the network and the client software will try to choose the wap that gives the best service, such as the wap with the strongest signal.
+
+
+=== peer-to-peer ===
+
+an ad hoc network is a network where stations communicate only peer-to-peer (p2p). there is no base and no one gives permission to talk. this is accomplished using the independent basic service set (ibss). a wifi direct network is different type of wireless network where stations communicate peer-to-peer. in a peer-to-peer network wireless devices within range of each other can discover and communicate directly without involving central access points.
+in a wi-fi p2p group, the group owner operates as an access point and all other devices are clients. there are two main methods to establish a group owner in the wi-fi direct group. in one approach, the user sets up a p2p group owner manually. this method is also known as autonomous group owner (autonomous go). in the second method, called negotiation-based group creation, two devices compete based on the group owner intent value. the device with higher intent value becomes a group owner and the second device becomes a client. group owner intent value can depend on whether the wireless device performs a cross-connection between an infrastructure wlan service and a p2p group, available power in the wireless device, whether the wireless device is already a group owner in another group or a received signal strength of the first wireless device.
+
+ieee 802.11 defines the physical layer (phy) and mac (media access control) layers based on csma/ca (carrier sense multiple access with collision avoidance). this is in contrast to ethernet which uses csma-cd (carrier sense multiple access with collision detection). the 802.11 specification includes provisions designed to minimize collisions, because two mobile units may both be in range of a common access point, but out of range of each other.
+
+
+=== bridge ===
+a bridge can be used to connect networks, typically of different types. a wireless ethernet bridge allows the connection of devices on a wired ethernet network to a wireless network. the bridge acts as the connection point to the wireless lan.
+
+
+=== wireless distribution system ===
+a wireless distribution system (wds) enables the wireless interconnection of access points in an ieee 802.11 network. it allows a wireless network to be expanded using multiple access points without the need for a wired backbone to link them, as is traditionally required. the notable advantage of a wds over other solutions is that it preserves the mac addresses of client packets across links between access points.an access point can be either a main, relay or remote base station. a main base station is typically connected to the wired ethernet. a relay base station relays data between remote base stations, wireless clients or other relay stations to either a main or another relay base station. a remote base station accepts connections from wireless clients and passes them to relay or main stations. connections between clients are made using mac addresses rather than by specifying ip assignments.
+all base stations in a wds must be configured to use the same radio channel, and share wep keys or wpa keys if they are used. they can be configured to different service set identifiers. wds also requires that every base station be configured to forward to others in the system as mentioned above.
+wds capability may also be referred to as repeater mode because it appears to bridge and accept wireless clients at the same time (unlike traditional bridging). throughput in this method is halved for all clients connected wirelessly.
+when it is difficult to connect all of the access points in a network by wires, it is also possible to put up access points as repeaters.
+
+
+== roaming ==
+
+there are two definitions for wireless lan roaming:
+
+internal roaming: the mobile station (ms) moves from one access point (ap) to another ap within a home network if the signal strength is too weak. an authentication server (radius) performs the re-authentication of ms via 802.1x (e.g. with peap). the billing of qos is in the home network. a mobile station roaming from one access point to another often interrupts the flow of data among the mobile station and an application connected to the network. the mobile station, for instance, periodically monitors the presence of alternative access points (ones that will provide a better connection). at some point, based on proprietary mechanisms, the mobile station decides to re-associate with an access point having a stronger wireless signal. the mobile station, however, may lose a connection with an access point before associating with another access point. in order to provide reliable connections with applications, the mobile station must generally include software that provides session persistence.
+external roaming: the ms (client) moves into a wlan of another wireless internet service provider (wisp) and takes their services (hotspot). the user can use a foreign network independently from their home network, provided that the foreign network allows visiting users on their network. there must be special authentication and billing systems for mobile services in a foreign network.
+
+
+== applications ==
+wireless lans have a great deal of applications.  modern implementations of wlans range from small in-home networks to large, campus-sized ones to completely mobile networks on airplanes and trains.
+users can access the internet from wlan hotspots in restaurants, hotels, and now with portable devices that connect to 3g or 4g networks. oftentimes these types of public access points require no registration or password to join the network.  others can be accessed once registration has occurred or a fee is paid.
+existing wireless lan infrastructures can also be used to work as indoor positioning systems with no modification to the existing hardware.
+
+
+== see also ==
+wireless wan
+wi-fi direct
+
+
+== references ==

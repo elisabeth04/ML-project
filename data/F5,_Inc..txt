@@ -1,0 +1,70 @@
+f5, inc. is an american technology company specializing in application security, multi-cloud management, online fraud prevention, application delivery networking (adn), application availability & performance, network security, and access & authorization.
+f5 is headquartered in seattle, washington in f5 tower, with an additional 75 offices in 43 countries focusing on sales, support, development, manufacturing, and administrative jobs. notable office locations include spokane, washington; new york, new york; boulder, colorado; london, england; san jose, california; and san francisco, california.f5's originally offered application delivery controller (adc) technology, but  expanded into application layer, automation, multi-cloud, and security services. as ransomware, data leaks, ddos, and other attacks on businesses of all sizes are arising, companies such as f5 have continued to reinvent themselves. while the majority of f5's revenue continues to be attributed to their hardware products such as the big-ip iseries systems, the company has begun to offer additional modules on their proprietary operating system, tmos (traffic management operating system.)  these modules are listed below and include, but are not limited to, local traffic manager (ltm), advanced web application firewall (awaf), dns (previously named gtm), and access policy manager (apm). these offer organizations running the big-ip the ability to deploy load balancing, layer 7 application firewalls, single sign-on (for azure ad, active directory, ldap, and okta), as well as enterprise-level vpns. while the big-ip was traditionally a hardware product, f5 now offers it as a virtual machine, which they have branded as the big-ip virtual edition. the big-ip virtual edition is cloud agnostic and can be deployed on-premises in a public and/or hybrid cloud environment.
+f5's customers include microsoft, oracle, alaska airlines, tesla, and meta.
+
+
+== corporate history ==
+f5, inc., originally named "f5 labs" and formerly branded "f5 networks, inc." was established in 1996. currently, the company's public facing branding generally presents the company as just "f5."
+in 1997, f5 launched its first product, a load balancer called big-ip. big-ip served the purpose of reallocating server traffic away from overloaded servers. in june 1999, the company had its initial public offering and was listed on the nasdaq stock exchange with symbol ffiv.in 2017, françois locoh-donou replaced john mcadam as president and ceo. later in 2017, f5 launched a dedicated site and organization focused on gathering global threat intelligence data, analyzing application threats, and publishing related findings, dubbed “f5 labs” in a nod to the company's history. the team continues to research application threats and publish findings every week. on may 3, 2017, f5 announced that it would move from its longtime headquarters on the waterfront near seattle center to a downtown seattle skyscraper that will be called f5 tower. the move occurred in early 2019.
+f5 employees include igor sysoev, the author of nginx; dahl-nygaard laureate gilad bracha; google click fraud czar shuman ghosemajumder; and defense.net founder barrett lyon.
+48 of the fortune 50 companies use f5 for load balancing, layer 7 application security, fraud prevention, and api management.
+
+
+== product offerings ==
+
+
+=== f5 big-ip ===
+f5's big-ip product family comprises hardware, modularized software, and virtual appliances that run the f5 tmos operating system.  depending on the appliance selected, one or more big-ip product modules can be added.
+offerings include:
+
+big-ip local traffic manager (ltm): local load balancing with caching, compression and tcp acceleration, based on a full-proxy architecture.
+big-ip dns: an intelligent global site load balancing (gslb) and authoritative dns server. distributes dns and application requests based on user, network, and cloud performance conditions.
+big-ip advanced firewall manager (afm): on-premises ddos protection and data center firewall .
+big-ip access policy manager (apm): provides access control and authentication for http and https applications.
+advanced waf: an advanced web application firewall with cutting-edge technology.
+container ingress service (cis): provides automation, orchestration, and networking services for container deployments.
+ip intelligence (ipi): blocking known bad ip addresses, prevention of phishing attacks and botnets.
+big-iq: a framework for managing big-ip devices and application services, irrespective of their form factors (hardware, software or cloud) or deployment model (on-premises, private/public cloud or hybrid). big-iq supports integration with other ecosystem participants such as public cloud providers, and orchestration engines through cloud connectors and through a set of open restful apis. big-iq uses a multi-tenant approach to management. this allows organizations to move closer to it as a service without concern that it might affect the stability or security of the services fabric.[24]
+
+
+==== big-ip history ====
+on september 7, 2004, f5 networks released version 9.0 of the big-ip software in addition to appliances to run the software. version 9.0 also marked the introduction of the company's tmos architecture, with enhancements including:
+
+moved from bsd to linux to handle system management functions (disks, logging, bootup, console access, etc.)
+creation of a traffic management microkernel (tmm) to directly talk to the networking hardware and handle all network activities.
+creation of the standard full-proxy mode, which fully terminates network connections at the big-ip and establishes new connections between the big-ip and the member servers in a pool. this allows for optimum tcp stacks on both sides as well as the complete ability to modify traffic in either direction.in late 2021, f5 introduced the next-generation of their big-ip hardware platforms, the rseries and velos chassis platform. these next-generation systems will replace the previous generation iseries and viprion chassis system.
+
+
+=== f5 nginx ===
+as a part of the nginx, inc. acquisition in 2019, f5 offers a premium, enterprise-level version of nginx with advanced features, multiple support slas, and regular software updates. hourly and annual subscription options are available with multiple levels of support, professional services, and training.
+
+
+=== f5 distributed cloud services ===
+during f5 agility 2022, f5 announced a new product offering being built on the platforms of big-ip, shape security, and volterra. the first new product available to the market will be the saas-based web application and api protection (waap) solution. f5 distributed cloud services are saas-based security, networking, and application management services that enable customers to deploy, secure, and operate their applications in a cloud-native environment wherever needed–data center, multi-cloud, or the network or enterprise edge.
+
+
+== acquisitions ==
+
+
+=== nginx, inc. ===
+in march 2019, f5 acquired nginx, inc., the company responsible for widely used open-source web server software, for $670 million.
+
+
+=== shape security, inc. ===
+in january 2020, f5 acquired shape security, inc., an artificial intelligence-based bot detection company, for $1 billion. it also sells products to protect applications against fraud.
+
+
+=== volterra, inc. ===
+in january 2021, f5 acquired volterra, inc., an edge networking company, for $500 million. it sells saas security services.
+
+
+=== threat stack, inc. ===
+in october 2021, f5 acquired threat stack, inc., a boston cloud computing security startup company for a reported $68 million.
+
+
+== references ==
+
+
+== external links ==
+official website 
+business data for f5:

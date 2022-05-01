@@ -1,0 +1,22 @@
+the natural language toolkit, or more commonly nltk, is a suite of libraries and programs for symbolic and statistical natural language processing (nlp) for english written in the python programming language. it was developed by steven bird and edward loper in the department of computer and information science at the university of pennsylvania. nltk includes graphical demonstrations and sample data. it is accompanied by a book that explains the underlying concepts behind the language processing tasks supported by the toolkit, plus a cookbook.nltk is intended to support research and teaching in nlp or closely related areas, including empirical linguistics, cognitive science, artificial intelligence, information retrieval, and machine learning.
+nltk has been used successfully as a teaching tool, as an individual study tool, and as a platform for prototyping and building research systems. there are 32 universities in the us and 25 countries using nltk in their courses. nltk supports classification, tokenization, stemming, tagging, parsing, and semantic reasoning functionalities.
+
+
+== library highlights ==
+lexical analysis: word and text tokenizer
+n-gram and collocations
+part-of-speech tagger
+tree model and text chunker for capturing
+named-entity recognition
+
+
+== see also ==
+
+spacy
+
+
+== references ==
+
+
+== external links ==
+official website

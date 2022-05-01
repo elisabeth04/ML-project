@@ -1,0 +1,1596 @@
+adversarial machine learning is a machine learning technique that attempts to exploit models by taking advantage of obtainable model information and using it to create malicious attacks. the most common reason is to cause a malfunction in a machine learning model.
+most machine learning techniques were designed to work on specific problem sets in which the training and test data are generated from the same statistical distribution (iid). when those models are applied to the real world, adversaries may supply data that violates that statistical assumption. this data may be arranged to exploit specific vulnerabilities and compromise the results. the four most common adversarial machine learning strategies are evasion, poisoning, model stealing (extraction), and inference.
+
+
+== history ==
+in 2004, nilesh dalvi and others noted that linear classifiers used in spam filters could be defeated by simple "evasion attacks" as spammers inserted "good words" into their spam emails. (around 2007, some spammers added random noise to fuzz words within "image spam" in order to defeat ocr-based filters.) in 2006, marco barreno and others published "can machine learning be secure?", outlining a broad taxonomy of attacks. as late as 2013 many researchers continued to hope that non-linear classifiers (such as support vector machines and neural networks) might be robust to adversaries, until battista biggio and others demonstrated the first gradient-based attacks on such machine-learning models (2012-2013). in 2012, deep neural networks began to dominate computer vision problems; starting in 2014, christian szegedy and others demonstrated that deep neural networks could be fooled by adversaries, again using a gradient-based attack to craft adversarial perturbations.recently, it was observed that adversarial attacks are harder to produce in the practical world due to the different environmental constraints that cancel out the effect of noises. for example, any small rotation or slight illumination on an adversarial image can destroy the adversariality. in addition, researchers such as google brain's nicholas frosst point out that it is much easier to make self-driving cars miss stop signs by physically removing the sign itself, rather than creating adversarial examples. frosst also believe that the adversarial machine learning community incorrectly assumes models trained on a certain data distribution will also perform well on a completely different data distribution. he suggests that a new approach to machine learning should be explored, and is currently working on a unique neural network that has characteristics more similar to human perception than state of the art approaches.while adversarial machine learning continues to be heavily rooted in academia, large tech companies such as google, microsoft, and ibm have begun curating documentation and open source code bases to allow others to concretely assess the robustness of machine learning models and minimize the risk of adversarial attacks.
+
+
+=== examples ===
+examples include attacks in spam filtering, where spam messages are obfuscated through the misspelling of "bad" words or the insertion of "good" words; attacks in computer security, such as obfuscating malware code within network packets or modifying the characteristics of a network flow to mislead intrusion detection; attacks in biometric recognition where fake biometric traits may be exploited to impersonate a legitimate user; or to compromise users' template galleries that adapt to updated traits over time.
+researchers showed that by changing only one-pixel it was possible to fool deep learning algorithms. others 3-d printed a toy turtle with a texture engineered to make google's object detection ai classify it as a rifle regardless of the angle from which the turtle was viewed. creating the turtle required only low-cost commercially available 3-d printing technology.a machine-tweaked image of a dog was shown to look like a cat to both computers and humans. a 2019 study reported that humans can guess how machines will classify adversarial images. researchers discovered methods for perturbing the appearance of a stop sign such that an autonomous vehicle classified it as a merge or speed limit sign.mcafee attacked tesla's former mobileye system, fooling it into driving 50 mph over the speed limit, simply by adding a two-inch strip of black tape to a speed limit sign.adversarial patterns on glasses or clothing designed to deceive facial-recognition systems or license-plate readers, have led to a niche industry of "stealth streetwear".an adversarial attack on a neural network can allow an attacker to inject algorithms into the target system. researchers can also create adversarial audio inputs to disguise commands to intelligent assistants in benign-seeming audio; a parallel literature explores human perception of such stimuli.clustering algorithms are used in security applications. malware and computer virus analysis aims to identify malware families, and to generate specific detection signatures.
+
+
+== attack modalities ==
+
+
+=== taxonomy ===
+attacks against (supervised) machine learning algorithms have been categorized along three primary axes: influence on the classifier, the security violation and their specificity.
+
+classifier influence: an attack can influence the classifier by disrupting the classification phase. this may be preceded by an exploration phase to identify vulnerabilities. the attacker's capabilities might be restricted by the presence of data manipulation constraints.
+security violation: an attack can supply malicious data that gets classified as legitimate. malicious data supplied during training can cause legitimate data to be rejected after training.
+specificity: a targeted attack attempts to allow a specific intrusion/disruption. alternatively, an indiscriminate attack creates general mayhem.this taxonomy has been extended into a more comprehensive threat model that allows explicit assumptions about the adversary's goal, knowledge of the attacked system, capability of manipulating the input data/system components, and on attack strategy. this taxonomy has further been extended to include dimensions for defense strategies against adversarial attacks.
+
+
+=== strategies ===
+below are some of the most commonly encountered attack scenarios:
+
+
+==== evasion ====
+evasion attacks are the most prevalent type of attack. for instance, spammers and hackers often attempt to evade detection by obfuscating the content of spam emails and malware. samples are modified to evade detection; that is, to be classified as legitimate. this does not involve influence over the training data. a clear example of evasion is image-based spam in which the spam content is embedded within an attached image to evade textual analysis by anti-spam filters. another example of evasion is given by spoofing attacks against biometric verification systems.evasion attacks can be generally split into two different categories: black box attacks and white box attacks.
+
+
+==== poisoning ====
+poisoning is adversarial contamination of training data. machine learning systems can be re-trained using data collected during operations. for instance, intrusion detection systems (idss) are often re-trained using such data. an attacker may poison this data by injecting malicious samples during operation that subsequently disrupt retraining.
+
+
+==== model stealing ====
+model stealing (also called model extraction) involves an adversary probing a black box machine learning system in order to either reconstruct the model or extract the data it was trained on.  this can cause issues when either the training data or the model itself is sensitive and confidential. for example, model stealing could be used to extract a proprietary stock trading model which the adversary could then use for their own financial benefit.
+
+
+==== inference ====
+inference attacks, leverages overgeneralization on training data, a common weakness of supervised machine learning models, in order to identify data used during model training. for attackers, this can be done even without knowledge or access to a target model's parameters, raising security concerns for models trained on sensitive data, including but not limited to medical records and/or personally identifiable information. with the emergence of transfer learning and public accessibility of many state of the art machine learning models, tech companies are increasingly drawn to create models based on public ones, giving attackers freely accessible information to the structure and type of model being used. however, membership inference relies heavily on overfitting resulting from poor machine learning practices, meaning a model that generalizes well to the real distribution of data should theoretically be more secure to membership inference attacks.
+
+
+== specific attack types ==
+there are a large variety of different adversarial attacks that can be used against machine learning systems. many of these work on both deep learning systems as well as traditional machine learning models such as svms and  linear regression. a high level sample of these attack types include:
+
+adversarial examples
+trojan attacks / backdoor attacks
+model inversion
+membership inference 
+
+
+=== adversarial examples ===
+an adversarial example refers to specially crafted input which is designed to look "normal" to humans but causes misclassification to a machine learning model.  often, a form of specially designed "noise"  is used to elicit the misclassifications. below are some current techniques for generating adversarial examples in the literature (by no means an exhaustive list).
+
+gradient-based evasion attack
+fast gradient sign method (fgsm)
+projected gradient descent (pgd)
+carlini and wagner (c&w) attack
+adversarial patch attack
+
+
+==== black box attacks ====
+black box attacks in adversarial machine learning assumes that the adversary can only get outputs for provided inputs and has no knowledge of the model structure or parameters. in this case, the adversarial example is generated either using a model created from scratch, or without any model at all (excluding the ability to query the original model). in either case, the objective of these attacks are to create adversarial examples that are able to transfer to the black box model in question.
+
+
+===== square attack =====
+the square attack was introduced in 2020 as a black box evasion adversarial attack based on querying classification scores without the need of gradient information. as a score based black box attack, this adversarial approach is able to query probability distributions across model output classes, but has no other access to the model itself. according to the paper's authors, the proposed square attack required less queries than when compared to state of the art score based black box attacks at the time.to describe the function objective, the attack defines the classifier as 
+  
+    
+      
+        f
+        :
+        [
+        0
+        ,
+        1
+        
+          ]
+          
+            d
+          
+        
+        →
+        
+          
+            r
+          
+          
+            k
+          
+        
+      
+    
+    {\textstyle f:[0,1]^{d}\rightarrow \mathbb {r} ^{k}}
+  , with 
+  
+    
+      
+        d
+      
+    
+    {\textstyle d}
+   representing the dimensions of the input and 
+  
+    
+      
+        k
+      
+    
+    {\textstyle k}
+   as the total number of output classes. 
+  
+    
+      
+        
+          f
+          
+            k
+          
+        
+        (
+        x
+        )
+      
+    
+    {\textstyle f_{k}(x)}
+   returns the score (or a probability between 0 and 1) that the input 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+   belongs to class 
+  
+    
+      
+        k
+      
+    
+    {\textstyle k}
+  , which allows the classifier's class output for any input 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+   to be defined as 
+  
+    
+      
+        a
+        r
+        g
+        m
+        a
+        
+          x
+          
+            k
+            =
+            1
+            ,
+            .
+            .
+            .
+            ,
+            k
+          
+        
+        
+          f
+          
+            k
+          
+        
+        (
+        x
+        )
+      
+    
+    {\textstyle argmax_{k=1,...,k}f_{k}(x)}
+  . the goal of this attack is as followed:
+  
+    
+      
+        a
+        r
+        g
+        m
+        a
+        
+          x
+          
+            k
+            =
+            1
+            ,
+            .
+            .
+            .
+            ,
+            k
+          
+        
+        
+          f
+          
+            k
+          
+        
+        (
+        
+          
+            
+              x
+              ^
+            
+          
+        
+        )
+        ≠
+        y
+        ,
+        
+          |
+        
+        
+          |
+        
+        
+          
+            
+              x
+              ^
+            
+          
+        
+        −
+        x
+        
+          |
+        
+        
+          
+            |
+          
+          
+            p
+          
+        
+        ≤
+        ϵ
+        
+           and 
+        
+        
+          
+            
+              x
+              ^
+            
+          
+        
+        ∈
+        [
+        0
+        ,
+        1
+        
+          ]
+          
+            d
+          
+        
+      
+    
+    {\displaystyle argmax_{k=1,...,k}f_{k}({\hat {x}})\neq y,||{\hat {x}}-x||_{p}\leq \epsilon {\text{ and }}{\hat {x}}\in [0,1]^{d}}
+  in other words, finding some perturbed adversarial example 
+  
+    
+      
+        
+          
+            
+              x
+              ^
+            
+          
+        
+      
+    
+    {\textstyle {\hat {x}}}
+   such that the classifier incorrectly classifies it to some other class under the constraint that 
+  
+    
+      
+        
+          
+            
+              x
+              ^
+            
+          
+        
+      
+    
+    {\textstyle {\hat {x}}}
+   and 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+   are similar. the paper then defines loss 
+  
+    
+      
+        l
+      
+    
+    {\textstyle l}
+   as 
+  
+    
+      
+        l
+        (
+        f
+        (
+        
+          
+            
+              x
+              ^
+            
+          
+        
+        )
+        ,
+        y
+        )
+        =
+        
+          f
+          
+            y
+          
+        
+        (
+        
+          
+            
+              x
+              ^
+            
+          
+        
+        )
+        −
+        
+          max
+          
+            k
+            ≠
+            y
+          
+        
+        
+          f
+          
+            k
+          
+        
+        (
+        
+          
+            
+              x
+              ^
+            
+          
+        
+        )
+      
+    
+    {\textstyle l(f({\hat {x}}),y)=f_{y}({\hat {x}})-\max _{k\neq y}f_{k}({\hat {x}})}
+   and proposes the solution to finding adversarial example 
+  
+    
+      
+        
+          
+            
+              x
+              ^
+            
+          
+        
+      
+    
+    {\textstyle {\hat {x}}}
+   as solving the below constrained optimization problem:
+  
+    
+      
+        
+          min
+          
+            
+              
+                
+                  x
+                  ^
+                
+              
+            
+            ∈
+            [
+            0
+            ,
+            1
+            
+              ]
+              
+                d
+              
+            
+          
+        
+        l
+        (
+        f
+        (
+        
+          
+            
+              x
+              ^
+            
+          
+        
+        )
+        ,
+        y
+        )
+        ,
+        
+           s.t. 
+        
+        
+          |
+        
+        
+          |
+        
+        
+          
+            
+              x
+              ^
+            
+          
+        
+        −
+        x
+        
+          |
+        
+        
+          
+            |
+          
+          
+            p
+          
+        
+        ≤
+        ϵ
+      
+    
+    {\displaystyle \min _{{\hat {x}}\in [0,1]^{d}}l(f({\hat {x}}),y),{\text{ s.t. }}||{\hat {x}}-x||_{p}\leq \epsilon }
+  the result in theory is an adversarial example that is highly confident in the incorrect class but is also very similar to the original image. to find such example, square attack utilizes the iterative random search technique to randomly perturb the image in hopes of improving the objective function. in each step, the algorithm perturbs only a small square section of pixels, hence the name square attack, which terminates as soon as an adversarial example is found in order to improve query efficiency. finally, since the attack algorithm uses scores and not gradient information, the authors of the paper indicate that this approach is not affected by gradient masking, a common technique formerly used to prevent evasion attacks.
+
+
+===== hopskipjump attack =====
+this black box attack was also proposed as a query efficient attack, but one that relies solely on access to any input's predicted output class. in other words, the hopskipjump attack does not require the ability to calculate gradients or access to score values like the square attack, and will require just the model's class prediction output (for any given input). the proposed attack is split into two different settings, targeted and untargeted, but both are built from the general idea of adding minimal perturbations that leads to a different model output. in the targeted setting, the goal is to cause the model to misclassify the perturbed image to a specific target label (that is not the original label). in the untargeted setting, the goal is to cause the model to misclassify the perturbed image to any label that is not the original label. the attack objectives for both are as follows where 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+   is the original image, 
+  
+    
+      
+        
+          x
+          
+            ′
+          
+        
+      
+    
+    {\textstyle x^{\prime }}
+   is the adversarial image, 
+  
+    
+      
+        d
+      
+    
+    {\textstyle d}
+   is a distance function between images, 
+  
+    
+      
+        
+          c
+          
+            ∗
+          
+        
+      
+    
+    {\textstyle c^{*}}
+   is the target label, and 
+  
+    
+      
+        c
+      
+    
+    {\textstyle c}
+   is the model's classification class label function:
+
+  
+    
+      
+        
+          
+            targeted:
+          
+        
+        
+          min
+          
+            
+              x
+              
+                ′
+              
+            
+          
+        
+        d
+        (
+        
+          x
+          
+            ′
+          
+        
+        ,
+        x
+        )
+        
+           subject to 
+        
+        c
+        (
+        
+          x
+          
+            ′
+          
+        
+        )
+        =
+        
+          c
+          
+            ∗
+          
+        
+      
+    
+    {\displaystyle {\textbf {targeted:}}\min _{x^{\prime }}d(x^{\prime },x){\text{ subject to }}c(x^{\prime })=c^{*}}
+  
+  
+    
+      
+        
+          
+            untargeted:
+          
+        
+        
+          min
+          
+            
+              x
+              
+                ′
+              
+            
+          
+        
+        d
+        (
+        
+          x
+          
+            ′
+          
+        
+        ,
+        x
+        )
+        
+           subject to 
+        
+        c
+        (
+        
+          x
+          
+            ′
+          
+        
+        )
+        ≠
+        c
+        (
+        x
+        )
+      
+    
+    {\displaystyle {\textbf {untargeted:}}\min _{x^{\prime }}d(x^{\prime },x){\text{ subject to }}c(x^{\prime })\neq c(x)}
+  to solve this problem, the attack proposes the following boundary function 
+  
+    
+      
+        s
+      
+    
+    {\textstyle s}
+   for both the untargeted and targeted setting:
+
+  
+    
+      
+        s
+        (
+        
+          x
+          
+            ′
+          
+        
+        )
+        :=
+        
+          
+            {
+            
+              
+                
+                  m
+                  a
+                  
+                    x
+                    
+                      c
+                      ≠
+                      c
+                      (
+                      x
+                      )
+                    
+                  
+                  
+                    f
+                    (
+                    
+                      x
+                      
+                        ′
+                      
+                    
+                    
+                      )
+                      
+                        c
+                      
+                    
+                  
+                  −
+                  f
+                  (
+                  
+                    x
+                    
+                      ′
+                    
+                  
+                  
+                    )
+                    
+                      c
+                      (
+                      x
+                      )
+                    
+                  
+                  ,
+                
+                
+                  
+                    (untargeted)
+                  
+                
+              
+              
+                
+                  f
+                  (
+                  
+                    x
+                    
+                      ′
+                    
+                  
+                  
+                    )
+                    
+                      
+                        c
+                        
+                          ∗
+                        
+                      
+                    
+                  
+                  −
+                  m
+                  a
+                  
+                    x
+                    
+                      c
+                      ≠
+                      
+                        c
+                        
+                          ∗
+                        
+                      
+                    
+                  
+                  
+                    f
+                    (
+                    
+                      x
+                      
+                        ′
+                      
+                    
+                    
+                      )
+                      
+                        c
+                      
+                    
+                  
+                  ,
+                
+                
+                  
+                    (targeted)
+                  
+                
+              
+            
+            
+          
+        
+      
+    
+    {\displaystyle s(x^{\prime }):={\begin{cases}max_{c\neq c(x)}{f(x^{\prime })_{c}}-f(x^{\prime })_{c(x)},&{\text{(untargeted)}}\\f(x^{\prime })_{c^{*}}-max_{c\neq c^{*}}{f(x^{\prime })_{c}},&{\text{(targeted)}}\end{cases}}}
+  this can be further simplified to better visualize the boundary between different potential adversarial examples:
+
+  
+    
+      
+        s
+        (
+        
+          x
+          
+            ′
+          
+        
+        )
+        >
+        0
+        
+        ⟺
+        
+        
+          
+            {
+            
+              
+                
+                  a
+                  r
+                  g
+                  m
+                  a
+                  
+                    x
+                    
+                      c
+                    
+                  
+                  f
+                  (
+                  
+                    x
+                    
+                      ′
+                    
+                  
+                  )
+                  ≠
+                  c
+                  (
+                  x
+                  )
+                  ,
+                
+                
+                  
+                    (untargeted)
+                  
+                
+              
+              
+                
+                  a
+                  r
+                  g
+                  m
+                  a
+                  
+                    x
+                    
+                      c
+                    
+                  
+                  f
+                  (
+                  
+                    x
+                    
+                      ′
+                    
+                  
+                  )
+                  =
+                  
+                    c
+                    
+                      ∗
+                    
+                  
+                  ,
+                
+                
+                  
+                    (targeted)
+                  
+                
+              
+            
+            
+          
+        
+      
+    
+    {\displaystyle s(x^{\prime })>0\iff {\begin{cases}argmax_{c}f(x^{\prime })\neq c(x),&{\text{(untargeted)}}\\argmax_{c}f(x^{\prime })=c^{*},&{\text{(targeted)}}\end{cases}}}
+  with this boundary function, the attack then follows an iterative algorithm to find adversarial examples 
+  
+    
+      
+        
+          x
+          
+            ′
+          
+        
+      
+    
+    {\textstyle x^{\prime }}
+   for a given image 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+   that satisfies the attack objectives.
+
+initialize 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+   to some point where 
+  
+    
+      
+        s
+        (
+        x
+        )
+        >
+        0
+      
+    
+    {\textstyle s(x)>0}
+  
+iterate below
+boundary search
+gradient update
+compute the gradient
+find the step sizeboundary search uses a modified binary search to find the point in which the boundary (as defined by 
+  
+    
+      
+        s
+      
+    
+    {\textstyle s}
+  ) intersects with the line between 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+   and 
+  
+    
+      
+        
+          x
+          
+            ′
+          
+        
+      
+    
+    {\textstyle x^{\prime }}
+  . the next step involves calculating the gradient for 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+  , and update the original 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+   using this gradient and a pre-chosen step size. hopskipjump authors prove that this iterative algorithm will converge, leading 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+   to a point right along the boundary that is very close in distance to the original image.however, since hopskipjump is a proposed black box attack and the iterative algorithm above requires the calculation of a gradient in the second iterative step (which black box attacks do not have access to), the authors propose a solution to gradient calculation that requires only the model's output predictions alone. by generating many random vectors in all directions, denoted as 
+  
+    
+      
+        
+          u
+          
+            b
+          
+        
+      
+    
+    {\textstyle u_{b}}
+  , an approximation of the gradient can be calculated using the average of these random vectors weighted by the sign of the boundary function on the image 
+  
+    
+      
+        
+          x
+          
+            ′
+          
+        
+        +
+        
+          δ
+          
+            
+              u
+              
+                b
+              
+            
+          
+        
+      
+    
+    {\textstyle x^{\prime }+\delta _{u_{b}}}
+  , where 
+  
+    
+      
+        
+          δ
+          
+            
+              u
+              
+                b
+              
+            
+          
+        
+      
+    
+    {\textstyle \delta _{u_{b}}}
+   is the size of the random vector perturbation:
+
+  
+    
+      
+        ∇
+        s
+        (
+        
+          x
+          
+            ′
+          
+        
+        ,
+        δ
+        )
+        ≈
+        
+          
+            1
+            b
+          
+        
+        
+          ∑
+          
+            b
+            =
+            1
+          
+          
+            b
+          
+        
+        ϕ
+        (
+        
+          x
+          
+            ′
+          
+        
+        +
+        
+          δ
+          
+            
+              u
+              
+                b
+              
+            
+          
+        
+        )
+        
+          u
+          
+            b
+          
+        
+      
+    
+    {\displaystyle \nabla s(x^{\prime },\delta )\approx {\frac {1}{b}}\sum _{b=1}^{b}\phi (x^{\prime }+\delta _{u_{b}})u_{b}}
+  the result of the equation above gives a close approximation of the gradient required in step 2 of the iterative algorithm, completing hopskipjump as a black box attack.
+
+
+==== white box attacks ====
+white box attacks assumes that the adversary has access to model parameters on top of being able to get labels for provided inputs.
+
+
+===== fast gradient sign method (fgsm) =====
+one of the very first proposed attacks for generating adversarial examples was proposed by google researchers ian j. goodfellow, jonathon shlens, and christian szegedy. the attack was called fast gradient sign method, and it consists of adding a linear amount of in-perceivable noise to the image and causing a model to incorrectly classify it. this noise is calculated by multiplying the sign of the gradient with respect to the image we want to perturb by a small constant epsilon. as epsilon increases, the model is more likely to be fooled, but the perturbations become easier to identify as well. shown below is the equation to generate an adversarial example where 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+   is the original image, 
+  
+    
+      
+        ϵ
+      
+    
+    {\textstyle \epsilon }
+   is a very small number, 
+  
+    
+      
+        
+          δ
+          
+            x
+          
+        
+      
+    
+    {\textstyle \delta _{x}}
+   is the gradient function, 
+  
+    
+      
+        j
+      
+    
+    {\textstyle j}
+   is the loss function, 
+  
+    
+      
+        θ
+      
+    
+    {\textstyle \theta }
+   is the model weights, and 
+  
+    
+      
+        y
+      
+    
+    {\textstyle y}
+   is the true label.
+  
+    
+      
+        a
+        d
+        
+          v
+          
+            x
+          
+        
+        =
+        x
+        +
+        ϵ
+        ⋅
+        s
+        i
+        g
+        n
+        (
+        
+          δ
+          
+            x
+          
+        
+        j
+        (
+        θ
+        ,
+        x
+        ,
+        y
+        )
+        )
+      
+    
+    {\displaystyle adv_{x}=x+\epsilon \cdot sign(\delta _{x}j(\theta ,x,y))}
+  one important property of this equation is that the gradient is calculated with respect to the input image since the goal is to generate an image that maximizes the loss for the original image of true label 
+  
+    
+      
+        y
+      
+    
+    {\textstyle y}
+  . in traditional gradient descent (for model training), the gradient is used to update the weights of the model since the goal is to minimize the loss for the model on a ground truth dateset. the fast gradient sign method was proposed as a fast way to generate adversarial examples to evade the model, based on the hypothesis that neural networks cannot resist even linear amounts of perturbation to the input.
+
+
+===== carlini & wagner (c&w) =====
+in an effort to analyze existing adversarial attacks and defenses, researchers at the university of california, berkeley, nicholas carlini and david wagner in 2016 propose a faster and more robust method to generate adversarial examples.the attack proposed by carlini and wagner begins with trying to solve a difficult non-linear optimization equation:
+
+  
+    
+      
+        min
+        (
+        
+          |
+        
+        
+          |
+        
+        δ
+        
+          |
+        
+        
+          
+            |
+          
+          
+            p
+          
+        
+        )
+        
+           subject to 
+        
+        c
+        (
+        x
+        +
+        δ
+        )
+        =
+        t
+        ,
+        x
+        +
+        δ
+        ∈
+        [
+        0
+        ,
+        1
+        
+          ]
+          
+            n
+          
+        
+      
+    
+    {\displaystyle \min(||\delta ||_{p}){\text{ subject to }}c(x+\delta )=t,x+\delta \in [0,1]^{n}}
+  here the objective is to minimize the noise (
+  
+    
+      
+        δ
+      
+    
+    {\textstyle \delta }
+  ), added to the original input 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+  , such that the machine learning algorithm (
+  
+    
+      
+        c
+      
+    
+    {\textstyle c}
+  ) predicts the original input with delta (or 
+  
+    
+      
+        x
+        +
+        δ
+      
+    
+    {\textstyle x+\delta }
+  ) as some other class 
+  
+    
+      
+        t
+      
+    
+    {\textstyle t}
+  . however instead of directly the above equation, carlini and wagner propose using a new function 
+  
+    
+      
+        f
+      
+    
+    {\textstyle f}
+   such that:
+
+  
+    
+      
+        c
+        (
+        x
+        +
+        δ
+        )
+        =
+        t
+        
+        ⟺
+        
+        f
+        (
+        x
+        +
+        δ
+        )
+        ≤
+        0
+      
+    
+    {\displaystyle c(x+\delta )=t\iff f(x+\delta )\leq 0}
+  this condenses the first equation to the problem below:
+
+  
+    
+      
+        min
+        (
+        
+          |
+        
+        
+          |
+        
+        δ
+        
+          |
+        
+        
+          
+            |
+          
+          
+            p
+          
+        
+        )
+        
+           subject to 
+        
+        f
+        (
+        x
+        +
+        δ
+        )
+        ≤
+        0
+        ,
+        x
+        +
+        δ
+        ∈
+        [
+        0
+        ,
+        1
+        
+          ]
+          
+            n
+          
+        
+      
+    
+    {\displaystyle \min(||\delta ||_{p}){\text{ subject to }}f(x+\delta )\leq 0,x+\delta \in [0,1]^{n}}
+  and even more to the equation below:
+
+  
+    
+      
+        min
+        (
+        
+          |
+        
+        
+          |
+        
+        δ
+        
+          |
+        
+        
+          
+            |
+          
+          
+            p
+          
+        
+        +
+        c
+        ⋅
+        f
+        (
+        x
+        +
+        δ
+        )
+        )
+        ,
+        x
+        +
+        δ
+        ∈
+        [
+        0
+        ,
+        1
+        
+          ]
+          
+            n
+          
+        
+      
+    
+    {\displaystyle \min(||\delta ||_{p}+c\cdot f(x+\delta )),x+\delta \in [0,1]^{n}}
+  carlini and wagner then propose the use of the below function in place of 
+  
+    
+      
+        f
+      
+    
+    {\textstyle f}
+   using 
+  
+    
+      
+        z
+      
+    
+    {\textstyle z}
+  , a function that determines class probabilities for given input 
+  
+    
+      
+        x
+      
+    
+    {\textstyle x}
+  . when substituted in, this equation can be thought of as finding a target class that is more confident than the next likeliest class by some constant amount:
+
+  
+    
+      
+        f
+        (
+        x
+        )
+        =
+        (
+        [
+        
+          max
+          
+            i
+            ≠
+            t
+          
+        
+        z
+        (
+        x
+        
+          )
+          
+            i
+          
+        
+        ]
+        −
+        z
+        (
+        x
+        
+          )
+          
+            t
+          
+        
+        
+          )
+          
+            +
+          
+        
+      
+    
+    {\displaystyle f(x)=([\max _{i\neq t}z(x)_{i}]-z(x)_{t})^{+}}
+  when solved using gradient descent, this equation is able to produce stronger adversarial examples when compared to fast gradient sign method that is also able to bypass defensive distillation, a defense that was once proposed to be effective against adversarial examples.
+
+
+== defenses ==
+
+researchers have proposed a multi-step approach to protecting machine learning.
+threat modeling – formalize the attackers goals and capabilities with respect to the target system.
+attack simulation – formalize the optimization problem the attacker tries to solve according to possible attack strategies.
+attack impact evaluation
+countermeasure design
+noise detection (for evasion based attack)
+information laundering – alter the information received by adversaries (for model stealing attacks)
+
+
+=== mechanisms ===
+a number of defense mechanisms against evasion, poisoning, and privacy attacks have been proposed, including:
+
+deep neural network (dnn) classifiers enhanced with data augmentation from gans, eg. 
+secure learning algorithms
+multiple classifier systems
+ai-written algorithms.
+ais that explore the training environment; for example, in image recognition, actively navigating a 3d environment rather than passively scanning a fixed set of 2d images.
+privacy-preserving learning
+ladder algorithm for kaggle-style competitions
+game theoretic models
+sanitizing training data
+adversarial training
+backdoor detection algorithms
+
+
+== see also ==
+pattern recognition
+
+
+== references ==
+
+
+== external links ==
+mitre atlas: adversarial threat landscape for artificial-intelligence systems
+nist 8269 draft: a taxonomy and terminology of adversarial machine learning
+nips 2007 workshop on machine learning in adversarial environments for computer security
+alfasvmlib – adversarial label flip attacks against support vector machines
+laskov, pavel; lippmann, richard (2010). "machine learning in adversarial environments". machine learning. 81 (2): 115–119. doi:10.1007/s10994-010-5207-6. s2cid 12567278.
+dagstuhl perspectives workshop on "machine learning methods for computer security"
+workshop on artificial intelligence and security, (aisec) series

@@ -1,1 +1,1 @@
-find . -name "/data/*.txt" | xargs rm #clean data
+find "data" -name "*.txt" | xargs rm #clean data
