@@ -16,6 +16,7 @@ def wiki_scrape(queries):
     warnings.simplefilter("ignore")
     wikipedia.set_rate_limiting(0.01) #set limit so the all powerful webmaster doesn't block us
     #get a random page content
+    print(f"queries: {queries}")
     for query in queries:
         result = wikipedia.search(query) 
         print(f"query: {query}, result: {result}")
@@ -28,12 +29,16 @@ def wiki_scrape(queries):
                     with open(f"{DATA_PATH}{title}.txt", "w") as infile:
                         infile.write(content)
                         infile.close()
+                    print(f"Added: {title}")
             except wikipedia.exceptions.DisambiguationError as e:
                 print(f"error: {e}")
-                pass
+                continue
             except wikipedia.exceptions.PageError as e:
                 print(f"error: {e}")
-                pass
+                continue
+            except FileNotFoundError as e:
+                print(f"error: {e}")
+                continue
             
-wiki_scrape(queries)
+# wiki_scrape(queries)
         
