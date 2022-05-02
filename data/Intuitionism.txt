@@ -73,4 +73,12 @@ l. e. j. brouwer, consciousness, philosophy, and mathematics, p. 90constance rei
 
 
 === secondary references ===
+<<<<<<< HEAD
 a. a. markov (1954) theory of algorithms. [translated by jacques j. schorr-kon and pst staff] imprint moscow, academy of sciences of the ussr, 1954 [i.e. jerusalem, israel program for scientific translations, 1961; available from the office of technical services, u.s. dept. of commerce, washington] description 444 p. 28 cm. added t.p. in russian translation of works of the mathematical institute, academy of sciences of the ussr, v. 42. original title: teoriya algorifmov. [qa248.m2943 dartmouth college library. u.s. dept. of commerce, office of technical services, number ots 60–51085.]a secondary reference for specialists: markov opined that "the entire significance for mathematics of rendering more precise the concept of algorithm emerges, however, in connection with the problem of a constructive foundation for mathematics....[p. 3, italics added.] markov believed that further applications of his work "merit a special book, which the author hopes to write in the future" (p. 3). sadly, said work apparently never appeared.turing, alan m. (1939). "systems of logic based on ordinals". {{cite journal}}: cite journal requires |journal= (help)
+=======
+a. a. markov (1954) theory of algorithms. [translated by jacques j. schorr-kon and pst staff] imprint moscow, academy of sciences of the ussr, 1954 [i.e. jerusalem, israel program for scientific translations, 1961; available from the office of technical services, u.s. dept. of commerce, washington] description 444 p. 28 cm. added t.p. in russian translation of works of the mathematical institute, academy of sciences of the ussr, v. 42. original title: teoriya algorifmov. [qa248.m2943 dartmouth college library. u.s. dept. of commerce, office of technical services, number ots 60–51085.]a secondary reference for specialists: markov opined that "the entire significance for mathematics of rendering more precise the concept of algorithm emerges, however, in connection with the problem of a constructive foundation for mathematics....[p. 3, italics added.] markov believed that further applications of his work "merit a special book, which the author hopes to write in the future" (p. 3). sadly, said work apparently never appeared.turing, alan m. (1939). "systems of logic based on ordinals". {{cite journal}}: cite journal requires |journal= (help)
+
+
+== external links ==
+ten questions about intuitionism
+>>>>>>> 80c5bb2723b0671cacce0d3b4c98de613710662c
